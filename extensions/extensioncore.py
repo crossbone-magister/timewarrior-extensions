@@ -32,6 +32,3 @@ def entry_to_seconds_diff(entry):
     endDate = datetime.datetime.fromisoformat(entry['end'])
     spentTime = endDate - startDate
     return spentTime
-
-if __name__ == "__main__":
-    print(parse_from_stdin())
