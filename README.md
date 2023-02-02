@@ -35,9 +35,23 @@ This extension produces a report that indicates the time tracked for a specific 
 > Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to select the tag used for elaboration, it is necessary to open the file extension and modifiy the variable `PRINCIPAL_TAG`
 
 ### by-tag
+This extension produces a report that indicates the total time tracked for each tag present in tracked intervals. Tags are sorted in descending order based on total time.
 
 ## Timewarrior utils
+Along side the extensions, this repository contains some useful (al least for me) utility scripts.
+
+## csv-to-timew
+This script takes a csv file and inserts each line into timewarrior as a closed interval.
+
+### File name
 TODO
+
+### Line format
+Each line should be composed as follows:
+```csv
+#startTime,endTime,tags
+0900,1000,coding python
+```
 
 ## TODO
 TODO
