@@ -44,14 +44,17 @@ Along side the extensions, this repository contains some useful (al least for me
 This script takes a csv file and inserts each line into timewarrior as a closed interval.
 
 ### File name
-TODO
+The file **must** be named after the day the tracking have to be recorded to. File name **must** adhere to the following date format `YYYYMMDD.csv`
+> For example, if you wish to register time trackings from January First 2023, the file should be named `20230101.csv`
 
 ### Line format
-Each line should be composed as follows:
+Each line **must** be composed as follows:
 ```csv
-#startTime,endTime,tags
+#startTime in HHMM format,endTime in HHMM format,tags separated by spaces
 0900,1000,coding python
 ```
 
 ## TODO
-TODO
+[ ] Maybe find a better name for principal-hours-day report
+[ ] Proper metadata parsing
+[ ] Proper metadata honoring
