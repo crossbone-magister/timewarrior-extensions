@@ -24,10 +24,10 @@ This extension produces a report that indicates:
 * For each day
     * Total hours tracked
     * Total hours over or under the `WORK_HOURS` threshold (default to 8)
-* Total of days registered
-* Total time registered
-* Total overtime registered, based on `WORK_HOURS` threshold
-* Total undertime registered, based on `WORK_HOURS` threshold
+* Total of days tracked
+* Total time tracked
+* Total overtime tracked, based on `WORK_HOURS` threshold
+* Total undertime tracked, based on `WORK_HOURS` threshold
 * Actual overtime, as difference between total overtime and total undertime
 
 ### principal-hours-day
@@ -44,7 +44,7 @@ Along side the extensions, this repository contains some useful (al least for me
 This script takes a csv file and inserts each line into timewarrior as a closed interval.
 
 ### File name
-The file **must** be named after the day the tracking have to be recorded to. File name **must** adhere to the following date format `YYYYMMDD.csv`
+The file **must** be named after the day the trackings have to be recorded to. File name **must** adhere to the following date format `YYYYMMDD.csv`
 > For example, if you wish to register time trackings from January First 2023, the file should be named `20230101.csv`
 
 ### Line format
@@ -55,6 +55,6 @@ Each line **must** be composed as follows:
 ```
 
 ## TODO
-[ ] Maybe find a better name for principal-hours-day report
-[ ] Proper metadata parsing
-[ ] Proper metadata honoring
+- [ ] Maybe find a better name for principal-hours-day report
+- [ ] Proper metadata parsing
+- [ ] Proper metadata honoring
