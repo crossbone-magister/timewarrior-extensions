@@ -13,7 +13,5 @@ print(f'Importing {fileToImport}')
 with open(fileToImport, newline='') as csvFile:
     timeTrackReader = csv.reader(csvFile)
     for timeTrack in timeTrackReader:
-        #print(timeTrack)
         command = f'timew track {trackingDate}T{timeTrack[0]} - {trackingDate}T{timeTrack[1]} {timeTrack[2]}'
-        #print(command)
         os.system(command)
