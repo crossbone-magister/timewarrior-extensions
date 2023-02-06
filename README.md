@@ -31,7 +31,7 @@ This extension produces a report that indicates:
 * Actual overtime, as difference between total overtime and total undertime
 
 ### principal-hours-day
-This extension produces a report that indicates the time tracked for a specific tag as percentage of total time tracked for each day.
+This extension produces a report that indicates the time tracked for a specific tag as percentage of total time tracked for each day. It also outputs an average percentage based on days tracked.
 > Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to select the tag used for elaboration, it is necessary to open the file extension and modifiy the variable `PRINCIPAL_TAG`
 
 ### by-tag

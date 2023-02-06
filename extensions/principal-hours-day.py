@@ -22,10 +22,14 @@ if __name__ == "__main__":
                 timePerPrincipal[dateKey] = timePerPrincipal[dateKey] + spentTime.seconds
             else:
                 timePerPrincipal[dateKey] = spentTime.seconds
+    totalForAverage = 0
     for date in timePerDay.keys():
         totalTime = timePerDay[date]
         principalTime = timePerPrincipal[date]
         principalPercent = (principalTime / totalTime) * 100
+        totalForAverage += principalPercent
         totalTimeConverted = seconds_to_hms(totalTime)
         principalTimeConverted = seconds_to_hms(principalTime)
         print(f'{date} - {PRINCIPAL_TAG}: {principalPercent:.2f}%')
+    percentAverage = totalForAverage / len(timePerDay.keys())
+    print(f'Average percent {percentAverage:.2f}%')
