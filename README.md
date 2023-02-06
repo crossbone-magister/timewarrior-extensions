@@ -32,7 +32,7 @@ This extension produces a report that indicates:
 
 ### principal-hours-day
 This extension produces a report that indicates the time tracked for a specific tag as percentage of total time tracked for each day. It also outputs an average percentage based on days tracked.
-> Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to select the tag used for elaboration, it is necessary to open the file extension and modifiy the variable `PRINCIPAL_TAG`
+> Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to select the tag used for elaboration, it is necessary to open the file extension and modify the variable `PRINCIPAL_TAG`
 
 ### by-tag
 This extension produces a report that indicates the total time tracked for each tag present in tracked intervals. Tags are sorted in descending order based on total time.
