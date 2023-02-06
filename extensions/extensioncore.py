@@ -11,7 +11,6 @@ def parse_from_stdin():
     jsonData = ""
     for line in fileinput.input():
         parseLine = line.rstrip()
-        #print(parseLine)
         if parseLine == "":
             frontMatterParsing = False 
         if frontMatterParsing:
