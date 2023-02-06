@@ -57,5 +57,5 @@ Each line **must** be composed as follows:
 
 ## TODO
 - [ ] Maybe find a better name for principal-hours-day report
-- [ ] Proper metadata parsing
+- [X] Proper metadata parsing
 - [ ] Proper metadata honoring

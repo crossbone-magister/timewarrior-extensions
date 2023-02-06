@@ -6,19 +6,20 @@ import datetime
 SECONDS_TO_HOURS = 60 * 60
 
 def parse_from_stdin():
-    frontMatterParsing = True
-    frontMatterData = ""
+    configurationParsing = True
+    configurationData = {}
     jsonData = ""
     for line in fileinput.input():
         parseLine = line.rstrip()
         if parseLine == "":
-            frontMatterParsing = False 
-        if frontMatterParsing:
-            frontMatterData = frontMatterData + parseLine
+            configurationParsing = False
+        if configurationParsing:
+            configurationPair = parseLine.split(':')
+            configurationData[configurationPair[0]] = configurationPair[1].strip()
         else:
             jsonData = jsonData + parseLine
     timeEntries = json.loads(jsonData)
-    return frontMatterData, timeEntries
+    return configurationData, timeEntries
 
 def seconds_to_hms(seconds):
     h = int(seconds / SECONDS_TO_HOURS)
