@@ -8,7 +8,8 @@ This repository contains a collection of useful (at least for me) timewarrior ex
 No dependency required!
 
 ## Installation
-Copy or create a symlink of all the files in the `extensions/` folder to your timewarrior extensions forder. 
+Download or clone the repository.
+Copy or create a symlink of all the files in the `extensions/` folder to your timewarrior extensions folder.
 To find where the extension folder is, you can either run `timew extensions` or get more info on the [timewarrior doc](https://timewarrior.net/docs/api/).
 Make sure the files are executable.
 
@@ -45,7 +46,7 @@ This script takes a csv file and inserts each line into timewarrior as a closed 
 
 ### File name
 The file **must** be named after the day the trackings have to be recorded to. File name **must** adhere to the following date format `YYYYMMDD.csv`
-> For example, if you wish to register time trackings from January First 2023, the file should be named `20230101.csv`
+> For example, if you wish to register time trackings from January the First 2023, the file should be named `20230101.csv`
 
 ### Line format
 Each line **must** be composed as follows:
