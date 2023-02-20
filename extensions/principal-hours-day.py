@@ -25,7 +25,10 @@ if __name__ == "__main__":
     totalForAverage = 0
     for date in timePerDay.keys():
         totalTime = timePerDay[date]
-        principalTime = timePerPrincipal[date]
+        if date in timePerPrincipal:
+            principalTime = timePerPrincipal[date]
+        else:
+            principalTime = 0
         principalPercent = (principalTime / totalTime) * 100
         totalForAverage += principalPercent
         totalTimeConverted = seconds_to_hms(totalTime)
