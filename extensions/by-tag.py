@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+"""
+ This extension produces a report that indicates the total time tracked for each tag present in tracked intervals. Tags are sorted in descending order based on total time.
+"""
+
 from extensioncore import parse_from_stdin, seconds_to_hms, entry_to_seconds_diff
 
 if __name__ == "__main__":
@@ -13,7 +18,7 @@ if __name__ == "__main__":
                 time_per_tag[tag] = time_spent
 
     length_longest_tag = 0
-    for tag in time_per_tag.keys():
+    for tag in time_per_tag:
         if len(tag) >= length_longest_tag:
             length_longest_tag = len(tag)
     time_per_tag = dict(reversed(sorted(time_per_tag.items(), key=lambda item: item[1])))
