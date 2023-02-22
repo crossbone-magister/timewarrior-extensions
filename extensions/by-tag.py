@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 """
- This extension produces a report that indicates the total time tracked for each tag present in tracked intervals. Tags are sorted in descending order based on total time.
+Produces a report that indicates the total time tracked for each tag present in tracked intervals.
+Tags are sorted in descending order based on total time.
 """
 
 from extensioncore import parse_from_stdin, seconds_to_hms, entry_to_seconds_diff
