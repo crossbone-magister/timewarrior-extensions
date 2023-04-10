@@ -59,3 +59,4 @@ Each line **must** be composed as follows:
 - [ ] Maybe find a better name for principal-hours-day report
 - [X] Proper metadata parsing
 - [X] Proper metadata honoring
+- [ ] Do not consider worked hours as undertime during "vacation days" (weekends, holy days and so on)
