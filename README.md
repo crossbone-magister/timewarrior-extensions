@@ -33,7 +33,7 @@ This extension produces a report that indicates:
 * Total undertime tracked, based on `WORK_HOURS` threshold
 * Actual overtime, as difference between total overtime and total undertime
 
-> Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to specify which days are off, it is necessary to open the extension file and modify the variable `DAYS_OFF`. Days range from zero (monday) to six (sunday) as specified in the python [https://docs.python.org/3/library/datetime.html#datetime.date.weekday](documentation)
+> Since timewarrior doesn't allow custom parameters to be passed to extensions, in order to specify which days are off, it is necessary to open the extension file and modify the variable `DAYS_OFF`. Days range from zero (monday) to six (sunday) as specified in the python [documentation](https://docs.python.org/3/library/datetime.html#datetime.date.weekday)
 
 ### principal-hours-day
 This extension produces a report that indicates the time tracked for a specific tag as percentage of total time tracked for each day. It also outputs an average percentage based on days tracked.
