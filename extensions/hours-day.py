@@ -2,7 +2,8 @@
 from extensioncore import *
 import datetime
 
-WORK_HOURS = 8 
+WORK_HOURS = 8
+DAYS_OFF = {5,6}
 
 if __name__ == "__main__":
     _, timeEntries = parse_from_stdin()
@@ -21,13 +22,18 @@ if __name__ == "__main__":
     totalUndertime = 0
     for date, secondsTotal in timePerDay.items():
         totalTime = totalTime + secondsTotal
+        is_day_off = datetime.datetime.strptime(date, '%Y-%m-%d').weekday() in DAYS_OFF
         hoursSpent, minutesSpent, secondsSpent = seconds_to_hms(secondsTotal) 
         output = f'{date} - {hoursSpent:02}h {minutesSpent:02}m {secondsSpent:02}s'
+        if is_day_off:
+            #Always consider day off as over time
+            totalOvertime = totalOvertime + hoursSpent * SECONDS_TO_HOURS + minutesSpent * 60 + secondsSpent
+            output = f'{output} - {hoursSpent:02}h {minutesSpent:02}m {secondsSpent:02}s DAY OFF'
         if hoursSpent > WORK_HOURS or (hoursSpent >= WORK_HOURS and (minutesSpent > 0 or secondsSpent > 0)):
             overtimeHours = hoursSpent - WORK_HOURS
             totalOvertime = totalOvertime + overtimeHours * SECONDS_TO_HOURS + minutesSpent * 60 + secondsSpent
             output = f'{output} - {overtimeHours:02}h {minutesSpent:02}m {secondsSpent:02}s OVER'
-        elif hoursSpent < WORK_HOURS:
+        elif hoursSpent < WORK_HOURS and not is_day_off:
             undertime = WORK_HOURS * SECONDS_TO_HOURS - secondsTotal
             totalUndertime = totalUndertime + undertime
             undertimeHours, undertimeMinutes, undertimeSeconds = seconds_to_hms(undertime)
