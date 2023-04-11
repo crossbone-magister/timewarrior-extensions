@@ -26,7 +26,7 @@ if __name__ == "__main__":
         hoursSpent, minutesSpent, secondsSpent = seconds_to_hms(secondsTotal) 
         output = f'{date} - {hoursSpent:02}h {minutesSpent:02}m {secondsSpent:02}s'
         if is_day_off:
-            #Always consider day off as over time
+            #Always consider a day off as over time
             totalOvertime = totalOvertime + hoursSpent * SECONDS_TO_HOURS + minutesSpent * 60 + secondsSpent
             output = f'{output} - {hoursSpent:02}h {minutesSpent:02}m {secondsSpent:02}s DAY OFF'
         if hoursSpent > WORK_HOURS or (hoursSpent >= WORK_HOURS and (minutesSpent > 0 or secondsSpent > 0)):
