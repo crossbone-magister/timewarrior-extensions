@@ -1,22 +1,28 @@
 #!/usr/bin/env python3
-from extensioncore import *
+
+"""
+Produces a report that indicates the total time tracked for each tag present in tracked intervals.
+Tags are sorted in descending order based on total time.
+"""
+
+from extensioncore import parse_from_stdin, seconds_to_hms, entry_to_seconds_diff
 
 if __name__ == "__main__":
-    _, timeEntries = parse_from_stdin()
-    timePerTag = {}
-    for entry in timeEntries:
-        timeSpent = entry_to_seconds_diff(entry).seconds
+    _, time_entries = parse_from_stdin()
+    time_per_tag = {}
+    for entry in time_entries:
+        time_spent = entry_to_seconds_diff(entry).seconds
         for tag in entry['tags']:
-            if tag in timePerTag:
-                timePerTag[tag] = timePerTag[tag] + timeSpent
+            if tag in time_per_tag:
+                time_per_tag[tag] = time_per_tag[tag] + time_spent
             else:
-                timePerTag[tag] = timeSpent
+                time_per_tag[tag] = time_spent
 
-    lengthLongestTag = 0
-    for tag in timePerTag.keys():
-        if len(tag) >= lengthLongestTag:
-            lengthLongestTag = len(tag)
-    timePerTag = dict(reversed(sorted(timePerTag.items(), key=lambda item: item[1])))
-    for tag, timeSpent in timePerTag.items():
-        timeSpentConverted = seconds_to_hms(timeSpent)
-        print(f'{tag: <{lengthLongestTag}} - {timeSpentConverted[0]:03}h {timeSpentConverted[1]:02}m {timeSpentConverted[2]:02}s')
+    length_longest_tag = 0
+    for tag in time_per_tag:
+        if len(tag) >= length_longest_tag:
+            length_longest_tag = len(tag)
+    time_per_tag = dict(reversed(sorted(time_per_tag.items(), key=lambda item: item[1])))
+    for tag, time_spent in time_per_tag.items():
+        time_spent_converted = seconds_to_hms(time_spent)
+        print(f'{tag: <{length_longest_tag}} - {time_spent_converted[0]:03}h {time_spent_converted[1]:02}m {time_spent_converted[2]:02}s')
