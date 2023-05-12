@@ -34,9 +34,9 @@ def entry_to_seconds_diff(entry):
     return spentTime
 
 def print_no_data_message(configuration):
-    if start and end:
-        report_start = configuration['temp.report.start']
-        report_end = configuration['temp.report.end']
+    report_start = configuration['temp.report.start']
+    report_end = configuration['temp.report.end']
+    if report_start and report_end:
         start = datetime.datetime.fromisoformat(report_start).astimezone()
         end = datetime.datetime.fromisoformat(report_end).astimezone()
         #TODO: print with correct format
