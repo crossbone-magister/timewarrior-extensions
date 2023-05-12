@@ -32,3 +32,9 @@ def entry_to_seconds_diff(entry):
     endDate = datetime.datetime.fromisoformat(entry['end'])
     spentTime = endDate - startDate
     return spentTime
+
+def print_no_data_message(configuration):
+    start = datetime.datetime.fromisoformat(configuration['temp.report.start']).astimezone()
+    end = datetime.datetime.fromisoformat(configuration['temp.report.end']).astimezone()
+    #TODO: print with correct format
+    print(f'No filtered data found in the range {start} - {end}')

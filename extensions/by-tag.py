@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 from extensioncore import *
 
-if __name__ == "__main__":
-    _, timeEntries = parse_from_stdin()
+def calculate_by_tag(configuration,timeEntries):
     timePerTag = {}
     for entry in timeEntries:
         timeSpent = entry_to_seconds_diff(entry).seconds
@@ -20,3 +19,10 @@ if __name__ == "__main__":
     for tag, timeSpent in timePerTag.items():
         timeSpentConverted = seconds_to_hms(timeSpent)
         print(f'{tag: <{lengthLongestTag}} - {timeSpentConverted[0]:03}h {timeSpentConverted[1]:02}m {timeSpentConverted[2]:02}s')
+
+if __name__ == "__main__":
+    configuration, timeEntries = parse_from_stdin()
+    if len(timeEntries) > 0:
+        calculate_by_tag(configuration,timeEntries)
+    else:
+        print_no_data_message(configuration)
