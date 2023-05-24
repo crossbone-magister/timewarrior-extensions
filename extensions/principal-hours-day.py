@@ -4,7 +4,6 @@ import datetime
 from zoneinfo import ZoneInfo
 
 PRINCIPAL_TAG='principale'
-DATEFORMAT = '%Y%m%dT%H%M%SZ'
 
 def calculate_principal_hours_day(configuration, timeEntries):
     timePerDay = {}
