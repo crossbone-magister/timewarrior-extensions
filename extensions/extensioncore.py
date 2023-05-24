@@ -39,7 +39,6 @@ def print_no_data_message(configuration):
     if report_start and report_end:
         start = datetime.datetime.fromisoformat(report_start).astimezone()
         end = datetime.datetime.fromisoformat(report_end).astimezone()
-        #TODO: print with correct format
-        print(f'No filtered data found in the range {start} - {end}')
+        print(f'No filtered data found in the range {start:%Y-%m-%dT%H:%M:%S} - {end:%Y-%m-%dT%H:%M:%S}.')
     else:
         print('No filtered data found')
