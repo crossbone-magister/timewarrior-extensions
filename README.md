@@ -65,4 +65,4 @@ Each line **must** be composed as follows:
 - [X] Proper metadata honoring
 - [X] Always consider days off (like weekend days) as overtime
 - [ ] Always consider holy days as overtime
-- [ ] Check behaviour on empty interval
+- [X] Check behaviour on empty interval

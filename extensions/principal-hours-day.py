@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 from extensioncore import *
 import datetime
+from zoneinfo import ZoneInfo
 
 PRINCIPAL_TAG='principale'
 
-if __name__ == "__main__":
-    _, timeEntries = parse_from_stdin()
+def calculate_principal_hours_day(configuration, timeEntries):
     timePerDay = {}
     timePerPrincipal = {}
     for entry in timeEntries:
@@ -36,3 +36,10 @@ if __name__ == "__main__":
         print(f'{date} - {PRINCIPAL_TAG}: {principalPercent:.2f}%')
     percentAverage = totalForAverage / len(timePerDay.keys())
     print(f'Average percent {percentAverage:.2f}%')
+
+if __name__ == "__main__":
+    configuration, timeEntries = parse_from_stdin()
+    if len(timeEntries) > 0:
+        calculate_principal_hours_day(configuration,timeEntries)
+    else:
+        print_no_data_message(configuration)

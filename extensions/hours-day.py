@@ -5,8 +5,7 @@ import datetime
 WORK_HOURS = 8
 DAYS_OFF = {5,6}
 
-if __name__ == "__main__":
-    _, timeEntries = parse_from_stdin()
+def calculate_hours_day(configuration, timeEntries):
     timePerDay = {}
     for entry in timeEntries:
         startDate = datetime.datetime.fromisoformat(entry['start'])
@@ -49,3 +48,11 @@ if __name__ == "__main__":
     print(f'Total overtime: {totalOvertimeConverted[0]}h {totalOvertimeConverted[1]}m {totalOvertimeConverted[2]}s')
     print(f'Total undertime: {totalUndertimeConverted[0]}h {totalUndertimeConverted[1]}m {totalUndertimeConverted[2]}s')
     print(f'Actual overtime: {actualOvertimeConverted[0]}h {actualOvertimeConverted[1]}m {actualOvertimeConverted[2]}s')
+
+
+if __name__ == "__main__":
+    configuration, timeEntries = parse_from_stdin()
+    if len(timeEntries) > 0:
+        calculate_hours_day(configuration,timeEntries)
+    else:
+        print_no_data_message(configuration)
