@@ -38,17 +38,17 @@ def calculate_hours_day(configuration, timeEntries):
             undertimeHours, undertimeMinutes, undertimeSeconds = seconds_to_hms(undertime)
             output = f'{output} - {undertimeHours:02}h {undertimeMinutes:02}m {undertimeSeconds:02}s UNDER'
         print(output)
-    actualOvertime = totalOvertime - totalUndertime
     totalTimeConverted = seconds_to_hms(totalTime)
     totalOvertimeConverted = seconds_to_hms(totalOvertime)
     totalUndertimeConverted = seconds_to_hms(totalUndertime)
-    actualOvertimeConverted = seconds_to_hms(actualOvertime)
     print(f'Total days: {len(timePerDay.keys())}')
     print(f'Total time: {totalTimeConverted[0]}h {totalTimeConverted[1]}m {totalTimeConverted[2]}s')
     print(f'Total overtime: {totalOvertimeConverted[0]}h {totalOvertimeConverted[1]}m {totalOvertimeConverted[2]}s')
     print(f'Total undertime: {totalUndertimeConverted[0]}h {totalUndertimeConverted[1]}m {totalUndertimeConverted[2]}s')
-    print(f'Actual overtime: {actualOvertimeConverted[0]}h {actualOvertimeConverted[1]}m {actualOvertimeConverted[2]}s')
-
+    if totalOvertime >= totalUndertime:
+        actualOvertime = totalOvertime - totalUndertime
+        actualOvertimeConverted = seconds_to_hms(actualOvertime)
+        print(f'Actual overtime: {actualOvertimeConverted[0]}h {actualOvertimeConverted[1]}m {actualOvertimeConverted[2]}s')
 
 if __name__ == "__main__":
     configuration, timeEntries = parse_from_stdin()
