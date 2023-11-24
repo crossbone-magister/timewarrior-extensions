@@ -2,7 +2,7 @@
 This repository contains a collection of useful (at least for me) timewarrior extensions written in Python.
 
 ## Requirements
-* Python 3
+* Python 3.11 or greater
 
 ## Dependencies
 No dependency required!
