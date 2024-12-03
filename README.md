@@ -1,3 +1,10 @@
+> [!WARNING]
+> This repository will be soon archived as most of its extensions have been rewritten and moved into separate repositories.
+> Here's the list of the new extensions:
+> * [hours-day](https://github.com/crossbone-magister/hours-day) replacing `hours-day`.
+> * [tag-percentage](https://github.com/crossbone-magister/tag-percentage) replacing `principal-hours-day`.
+> * [tag-total](https://github.com/crossbone-magister/tag-total) replacing `by-tag`.
+
 # Timewarrior Extensions
 This repository contains a collection of useful (at least for me) timewarrior extensions written in Python.
 
